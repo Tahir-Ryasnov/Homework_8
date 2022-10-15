@@ -38,4 +38,4 @@ class TestFunctions(unittest.TestCase):
     '''Тест с ошибкой №2'''
     def test_get_folder_info(self):
         result = yadisk.is_folder_in_directory('Моя милая папочка')
-        self.assertNotEqual(result, True)
+        self.assertFalse(result)
