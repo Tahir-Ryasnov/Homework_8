@@ -14,6 +14,7 @@ directories = {
 
 
 def find_name():
+    '''Функция поиска имени по номеру документа'''
     number_ = input('Введите номер документа: ')
     result = 'Документ с таким номером не существует.'
     for doc in documents:
@@ -22,16 +23,16 @@ def find_name():
             break
     return result
 
-
 def _get_input():
+    '''В эту функцию вынесены все инпуты для функции add_file'''
     a = input("Введите тип документа: ")
     b = input("Введите номер документа: ")
     c = input("Введите имя: ")
     d = input("Введите номер полки: ")
     return [a, b, c, d]
 
-
 def add_file(int_datas):
+    '''Функция добавляющая новый файл'''
     type_doc = int_datas[0]
     num_doc = int_datas[1]
     name = int_datas[2]
@@ -44,8 +45,8 @@ def add_file(int_datas):
         print('Указана несуществующая полка')
     return documents
 
-
 def delete_file():
+    '''Функция удаления файла'''
     num_doc = input('Введите номер документа: ').strip()
     count = 0
     for file in documents:
@@ -77,6 +78,7 @@ class YaDisk:
         return response.status_code
 
     def is_folder_in_directory(self, folder_name):
+        '''Функция проверяющая наличие папки на Яндекс.Диске'''
         params = {'path': folder_name}
         url = 'https://cloud-api.yandex.net/v1/disk/resources'
         result = requests.get(url, headers=self.headers, params=params)
